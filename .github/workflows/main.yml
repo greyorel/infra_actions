@@ -47,10 +47,10 @@ jobs:
     steps:
       - name: Check out the repo
         # Проверка доступности репозитория Docker Hub для workflow
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2
       - name: Set up Docker Buildx
         # Вызов сборщика контейнеров docker
-        uses: docker/setup-buildx-action@v1 
+        uses: docker/setup-buildx-action@v1
       - name: Login to Docker 
         # Запуск скрипта авторизации на Docker Hub
         uses: docker/login-action@v1 
@@ -78,7 +78,7 @@ jobs:
         script: |
           # Выполняет pull образа с DockerHub
           sudo docker pull greyorel/infra:latest
-          #остановка всех контейнеров
+          # Остановка всех контейнеров
           sudo docker stop $(sudo docker ps -a -q)
           sudo docker run --rm -d -p 5000:5000 greyorel/infra:latest
 
